@@ -6,8 +6,15 @@ use Illuminate\Http\Request;
 
 class HelloController extends Controller
 {
-    public function index()
+    public function index($id = 'noname', $pass = 'unknown')
     {
-        return 'あああ';
+        return <<<EOF
+あああ
+
+{$id}
+
+{$pass}
+
+EOF;
     }
 }
