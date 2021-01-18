@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('hello/{msg?}', function ($msg = 'なし') {
+    $html = 'msgの値は ' . $msg . ' です';
+    return $html;
+});
