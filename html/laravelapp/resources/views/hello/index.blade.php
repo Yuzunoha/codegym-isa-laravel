@@ -19,12 +19,16 @@
 </head>
 
 <body>
-  <p>forディレクティブの例</p>
-  <ul>
-    @foreach([0] as $e)
-      <?php dd($loop); ?>
-    @endforeach
-  </ul>
+  <p>whileディレクティブとphpディレクティブの例</p>
+  @php
+  $idx = 1;  
+  @endphp
+
+  <ol>
+  @while($idx < 6)
+    <li>{{$idx++}}</li>    
+  @endwhile
+  </ol>
 </body>
 
 </html>
