@@ -19,14 +19,15 @@
 </head>
 
 <body>
-  <p>whileディレクティブとphpディレクティブの例</p>
+  <p>whileディレクティブとphpディレクティブの例2</p>
   @php
-  $idx = 1;  
+    $cnt = 0;
+    $length = count($data);
   @endphp
 
   <ol>
-  @while($idx < 6)
-    <li>{{$idx++}}</li>    
+  @while ($cnt < $length)
+    <li>{{$data[$cnt++]}}</li>
   @endwhile
   </ol>
 </body>

@@ -9,6 +9,7 @@ class HelloController extends Controller
 {
     function index()
     {
-        return view('hello.index');
+        $nums = ['one', 'two', 'three', 'four', 'five',];
+        return view('hello.index', ['data' => $nums]);
     }
 }
