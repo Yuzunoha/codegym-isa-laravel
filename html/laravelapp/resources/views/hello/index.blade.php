@@ -9,18 +9,18 @@
     }
 
     h1 {
-      font-size: 100pt;
+      font-size: 50pt;
       text-align: right;
       color: #f6f6f6;
-      margin: -50px 0px -100px 0px;
+      margin: -20px 0px -30px 0px;
+      letter-spacing: -4pt;
     }
   </style>
 </head>
 
 <body>
-  <h1>Index</h1>
-  <p><?php echo $msg; ?></p>
-  <p>ID=<?php echo $id; ?></p>
+  <h1>Blade/Index</h1>
+  <p>{{$msg}}</p>
 </body>
 
 </html>
