@@ -9,6 +9,6 @@ class HelloController extends Controller
 {
     function index()
     {
-        return view('hello.index', ['data' => ['one', 'two', 'three', 'four', 'five', 'six']]);
+        return view('hello.index');
     }
 }
