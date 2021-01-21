@@ -19,17 +19,11 @@
 </head>
 
 <body>
-  <h1>Blade/Index</h1>
-  @if(empty($msg))
-  <p>何か書いてください</p>
-  @else
-  <p>{{$msg}}</p>
-  @endif
-  <form method="POST" action="/hello">
-    {{ csrf_field() }}
-    <input type="text" name="msg">
-    <input type="submit">
-  </form>
+  <ol>
+    @foreach($data as $num)
+    <li>{{$num}}</li>
+    @endforeach
+  </ol>
 </body>
 
 </html>
