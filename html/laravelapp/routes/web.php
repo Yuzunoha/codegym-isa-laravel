@@ -22,3 +22,4 @@ Route::get('hello/add', 'HelloController@add');
 Route::post('hello/add', 'HelloController@create');
 
 Route::get('members', 'MembersController@index');
+Route::post('members', 'MembersController@post');

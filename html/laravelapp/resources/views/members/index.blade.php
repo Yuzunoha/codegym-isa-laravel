@@ -22,7 +22,7 @@
 
    <h2>form</h2>
    <table>
-   <form action="/hello/add" method="post">
+   <form action="/members" method="post">
       {{ csrf_field() }}
       <tr><th>name: </th><td><input type="text" name="name"></td></tr>
       <tr><th>mail: </th><td><input type="text" name="mail"></td></tr>
