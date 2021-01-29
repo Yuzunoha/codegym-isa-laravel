@@ -13,4 +13,14 @@ class HelloController extends Controller
         $items = DB::select('select * from people');
         return view('hello.index', ['items' => $items]);
     }
+
+    public function add(Request $request)
+    {
+        return view('hello.add');
+    }
+
+    public function create(Request $request)
+    {
+        return view('hello.add');
+    }
 }
