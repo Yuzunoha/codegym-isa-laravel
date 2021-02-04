@@ -10,8 +10,7 @@ class HelloController extends Controller
 {
     public function index(Request $request)
     {
-        // $items = DB::select('select * from people');
-        $items = Db::table('people')->get();
+        $items = Db::table('people')->orderBy('age', 'asc')->get();
         return view('hello.index', ['items' => $items]);
     }
 
