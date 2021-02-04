@@ -16,6 +16,8 @@
        <td width="50px">{{$item->id}}</td>
        <th width="50px">name:</th>
        <td width="200px">{{$item->name}}</td>
+       <th width="50px">age:</th>
+       <td width="50px">{{$item->age}}</td>
        <th width="50px">mail:</th>
        <td width="300px">{{$item->mail}}</td>
        </tr>
