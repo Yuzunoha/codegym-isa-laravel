@@ -68,8 +68,7 @@ class HelloController extends Controller
     public function remove(Request $request)
     {
         $id = $request->id;
-        $param = ['id' => $id];
-        DB::delete('delete from people where id = :id', $param);
+        $item = DB::table('people')->where('id', $id)->delete();
         return redirect('/hello');
     }
 
