@@ -38,9 +38,9 @@ class HelloController extends Controller
 
     public function edit(Request $request)
     {
-        $param = ['id' => $request->id];
-        $item = DB::select('select * from people where id = :id', $param);
-        $view = view('hello.edit', ['form' => $item[0]]);
+        $id = $request->id;
+        $person = $this->getPersonFromId($id);
+        $view = view('hello.edit', ['form' => $person]);
         return $view;
     }
 
@@ -54,5 +54,25 @@ class HelloController extends Controller
         ];
         DB::update('update people set name =:name, mail = :mail, age = :age where id = :id', $param);
         return redirect('/hello');
+    }
+
+    public function del(Request $request)
+    {
+        $id = $request->id;
+        $person = $this->getPersonFromId($id);
+        return view('hello.del', ['form' => $person]);
+    }
+
+    public function remove(Request $request)
+    {
+        dd($request->id);
+    }
+
+    private function getPersonFromId($id)
+    {
+        $param = ['id' => $id];
+        $people = Db::select('select * from people where id = :id', $param);
+        $person = $people[0];
+        return $person;
     }
 }
