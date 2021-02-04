@@ -24,6 +24,7 @@ Route::get('hello/edit', 'HelloController@edit');
 Route::post('hello/edit', 'HelloController@update');
 Route::get('hello/del', 'HelloController@del');
 Route::post('hello/del', 'HelloController@remove');
+Route::get('hello/show', 'HelloController@show');
 
 Route::get('members', 'MembersController@index');
 Route::post('members', 'MembersController@post');

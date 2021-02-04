@@ -79,4 +79,11 @@ class HelloController extends Controller
         $person = $people[0];
         return $person;
     }
+
+    public function show(Request $request)
+    {
+        $id = $request->id;
+        $item = DB::table('people')->where('id', $id)->first();
+        return view('hello/show', ['item' => $item]);
+    }
 }
