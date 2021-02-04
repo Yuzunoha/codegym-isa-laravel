@@ -32,7 +32,8 @@ class HelloController extends Controller
             'mail' => $request->mail,
             'age' => $request->age,
         ];
-        DB::insert('insert into people (name, mail, age) values (:name, :mail, :age)', $param);
+        // DB::insert('insert into people (name, mail, age) values (:name, :mail, :age)', $param);
+        DB::table('people')->insert($param);
         return redirect('/hello');
     }
 
@@ -46,13 +47,14 @@ class HelloController extends Controller
 
     public function update(Request $request)
     {
+        $id = $request->id;
         $param = [
-            'id' => $request->id,
             'name' => $request->name,
             'mail' => $request->mail,
             'age' => $request->age,
         ];
-        DB::update('update people set name =:name, mail = :mail, age = :age where id = :id', $param);
+        // DB::update('update people set name =:name, mail = :mail, age = :age where id = :id', $param);
+        DB::table('people')->where('id', $id)->update($param);
         return redirect('/hello');
     }
 
