@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Builder;
+use App\Scopes\ScopePerson;
 use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
@@ -10,12 +10,7 @@ class Person extends Model
     protected static function boot()
     {
         parent::boot();
-
-        $ageBuilderFunc = function (Builder $builder) {
-            $builder->where('age', '>', 20);
-        };
-
-        static::addGlobalScope('age', $ageBuilderFunc);
+        static::addGlobalScope(new ScopePerson);
     }
 
     public function getData()
