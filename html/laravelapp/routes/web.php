@@ -30,3 +30,5 @@ Route::get('members', 'MembersController@index');
 Route::post('members', 'MembersController@post');
 
 Route::get('person', 'PersonController@index');
+Route::get('person/find', 'PersonController@find');
+Route::post('person/find', 'PersonController@search');
