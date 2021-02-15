@@ -16,4 +16,14 @@ class Person extends Model
     {
         return $query->where('name', $name);
     }
+
+    public function scopeAgeGreaterThan($query, $min)
+    {
+        return $query->where('age', '>=', $min);
+    }
+
+    public function scopeAgeLessThan($query, $max)
+    {
+        return $query->where('age', '<=', $max);
+    }
 }
