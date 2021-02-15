@@ -28,3 +28,5 @@ Route::get('hello/show', 'HelloController@show');
 
 Route::get('members', 'MembersController@index');
 Route::post('members', 'MembersController@post');
+
+Route::get('person', 'PersonController@index');
