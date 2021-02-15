@@ -11,4 +11,9 @@ class Person extends Model
         $data = $this->id . ': ' . $this->name . ' (' . $this->age . ')';
         return $data;
     }
+
+    public function scopeNameEqual($query, $name)
+    {
+        return $query->where('name', $name);
+    }
 }
