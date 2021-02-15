@@ -7,30 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
 {
-    protected static function boot()
-    {
-        parent::boot();
-        static::addGlobalScope(new ScopePerson);
-    }
+    protected $guarded = array('id');
 
+    public static $rules = array(
+        'name' => 'required',
+        'mail' => 'email',
+        'age' => 'integer|min:0|max:150'
+    );
+
+    // getDataは残しておく
     public function getData()
     {
-        $data = $this->id . ': ' . $this->name . ' (' . $this->age . ')';
-        return $data;
-    }
-
-    public function scopeNameEqual($query, $name)
-    {
-        return $query->where('name', $name);
-    }
-
-    public function scopeAgeGreaterThan($query, $min)
-    {
-        return $query->where('age', '>=', $min);
-    }
-
-    public function scopeAgeLessThan($query, $max)
-    {
-        return $query->where('age', '<=', $max);
+        return $this->id . ': ' . $this->name . ' (' . $this->age . ')';
     }
 }
