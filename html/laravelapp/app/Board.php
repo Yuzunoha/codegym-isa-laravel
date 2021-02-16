@@ -14,8 +14,15 @@ class Board extends Model
         'message' => 'required',
     );
 
+    public function person()
+    {
+        return $this->belongsTo('App\Person');
+    }
+
+    // 既にあるメソッドを修正
     public function getData()
     {
-        return $this->id . ': ' . $this->title;
+        $name = $this->person->name ?? '';
+        return $this->id . ': ' . $this->title . ' (' . $name . ')';
     }
 }
