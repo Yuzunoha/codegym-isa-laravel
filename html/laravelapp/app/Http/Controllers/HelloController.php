@@ -11,7 +11,7 @@ class HelloController extends Controller
 {
     public function index(Request $request)
     {
-        $sort = $request->sort;
+        $sort = $request->sort ?? 'id'; // デフォルトのソートキー
         $items = Person::orderBy($sort, 'asc')->simplePaginate(5);
         $param = ['items' => $items, 'sort' => $sort];
         return view('hello.index', $param);
