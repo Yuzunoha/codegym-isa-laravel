@@ -58,10 +58,9 @@ class PersonController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, Person::$rules);
-        $person = Person::find($request->id);
         $form = $request->all();
         unset($form['_token']);
-        $person->fill($form)->save();
+        Person::find($request->id)->fill($form)->save();
         return redirect('/person');
     }
 
