@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use App\Person;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HelloController extends Controller
 {
     public function index(Request $request)
     {
+        $user = Auth::user();
         $sort = $request->sort ?? 'id'; // デフォルトのソートキー
         $items = Person::orderBy($sort, 'asc')->paginate(5);
-        $param = ['items' => $items, 'sort' => $sort];
+        $param = ['items' => $items, 'sort' => $sort, 'user' => $user];
         return view('hello.index', $param);
     }
 
