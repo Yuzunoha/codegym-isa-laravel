@@ -28,6 +28,8 @@ Route::get('hello/show', 'HelloController@show');
 Route::get('hello/rest', 'HelloController@rest');
 Route::get('hello/session', 'HelloController@ses_get');
 Route::post('hello/session', 'HelloController@ses_put');
+Route::get('hello/auth', 'HelloController@getAuth');
+Route::post('hello/auth', 'HelloController@postAuth');
 Route::get('members', 'MembersController@index');
 Route::post('members', 'MembersController@post');
 
