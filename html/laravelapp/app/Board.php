@@ -1,0 +1,28 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Board extends Model
+{
+    protected $guarded = array('id');
+
+    public static $rules = array(
+        'person_id' => 'required',
+        'title' => 'required',
+        'message' => 'required',
+    );
+
+    public function person()
+    {
+        return $this->belongsTo('App\Person');
+    }
+
+    // 既にあるメソッドを修正
+    public function getData()
+    {
+        $name = $this->person->name ?? '';
+        return $this->id . ': ' . $this->title . ' (' . $name . ')';
+    }
+}
