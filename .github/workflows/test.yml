@@ -33,6 +33,7 @@ jobs:
           docker-compose up -d
           docker-compose exec -T --user docker app bash -c 'yes | composer install'
           docker-compose exec -T --user docker app bash -c 'chmod 777 -R storage bootstrap/cache'
+          sleep 10
           docker-compose exec -T --user docker app bash -c 'composer dump-autoload'
           docker-compose exec -T --user docker app bash -c 'php artisan migrate:fresh --seed'
 
