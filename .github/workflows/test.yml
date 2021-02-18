@@ -30,7 +30,7 @@ jobs:
         run: |
           echo DOCKER_UID=`id -u` > .env
           docker-compose build --no-cache
-        	docker-compose up -d
+          docker-compose up -d
           docker-compose exec -T --user docker app bash -c 'yes | composer install'
           docker-compose exec -T --user docker app bash -c 'chmod 777 -R storage bootstrap/cache'
           docker-compose exec -T --user docker app bash -c 'composer dump-autoload'
