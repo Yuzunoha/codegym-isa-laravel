@@ -31,7 +31,7 @@ $factory->define(
 );
 $factory->define(
     App\Person::class,
-    function (Faker\Generator $faker) {
+    function (Faker $faker) {
         return [
             'name' => $faker->name,
             'mail' => $faker->safeEmail,
