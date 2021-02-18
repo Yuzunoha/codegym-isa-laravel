@@ -19,7 +19,7 @@ class HelloTest extends TestCase
         $msg = "Hello";
         $this->assertEquals('Hello', $msg);
 
-        $n = random_int(0, 100);
+        $n = random_int(0, 99);
         $this->assertLessThan(100, $n);
     }
 }
