@@ -21,11 +21,16 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      # phpのバージョンを上げる
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+
       - name: dockerコンテナのビルドからシーディングまでを行う
         run: make init
 
       - name: unittest用dbを作成する
         run: create-test-db
-        
+
       - name: unittestを実行する
         run: phpunit
