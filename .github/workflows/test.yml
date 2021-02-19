@@ -38,7 +38,10 @@ jobs:
           docker-compose exec -T --user docker app bash -c 'php artisan migrate:fresh --seed'
 
       - name: unittest用dbを作成する
-        run: make create-test-db
+        run: |
+          docker-compose exec -T db bash -c 'echo create database docker_test_db | mysql -u root -proot'
+          docker-compose exec -T db bash -c "echo 'GRANT ALL PRIVILEGES ON docker_test_db.* TO docker_db_user' | mysql -u root -proot"
 
       - name: unittestを実行する
-        run: make phpunit
+        run: |
+          docker-compose exec -T --user docker app bash -c 'vendor/bin/phpunit'
