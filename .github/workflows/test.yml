@@ -33,9 +33,9 @@ jobs:
           docker-compose up -d
           docker-compose exec -T --user docker app bash -c 'yes | composer install'
           docker-compose exec -T --user docker app bash -c 'chmod 777 -R storage bootstrap/cache'
-      - name: 10秒待つ
+      - name: 30秒待つ
         run: |
-          sleep 10
+          sleep 30
       - name: テスト用のdbを準備する
         run: |
           docker-compose exec -T --user docker app bash -c 'composer dump-autoload'
