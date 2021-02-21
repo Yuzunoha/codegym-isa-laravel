@@ -26,14 +26,18 @@ jobs:
         with:
           php-version: '7.4'
 
-      - name: dockerコンテナのビルドからシーディングまでを行う
+      - name: dockerコンテナをビルドして起動する
         run: |
           echo DOCKER_UID=`id -u` > .env
           docker-compose build --no-cache
           docker-compose up -d
           docker-compose exec -T --user docker app bash -c 'yes | composer install'
           docker-compose exec -T --user docker app bash -c 'chmod 777 -R storage bootstrap/cache'
+      - name: 10秒待つ
+        run: |
           sleep 10
+      - name: テスト用のdbを準備する
+        run: |
           docker-compose exec -T --user docker app bash -c 'composer dump-autoload'
           docker-compose exec -T --user docker app bash -c 'php artisan migrate:fresh --seed'
 
